@@ -1,0 +1,42 @@
+<h1>Eat Da Burger!</h1>
+
+<div class = "container">
+    <div class="row">
+        <div class="col-sm text-center">
+            Uneaten burgers
+            {{#each burger}}
+                {{#unless devoured}}
+                    <div class="card">
+                        <div class="card-body">
+                            {{id}}: {{burger_name}}
+                        </div>
+                        <button type="button" class="btn btn-danger devour" data-id="{{id}}" data-devoured="{{devoured}}">
+                            DEVOUR!
+                        </button>
+                    </div>
+                {{/unless}}
+            {{/each}}
+        </div>
+        <div class="col-sm text-center">
+            <form class="create-form">
+                <div class="form-group">
+                    <textarea class="form-control" id="newBurger" rows="3" placeholder='Enter a burger you want to eat, then click the "Submit" button'></textarea>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm text-center">
+            Eaten burgers
+            {{#each burger}}
+                {{#if devoured}}
+                    <div class="card">
+                        <div class="card-body">
+                            <s>{{id}}: {{burger_name}}</s>
+                        </div>
+                    </div>
+                {{/if}}
+            {{/each}}
+        </div>
+    </div>
+</div>
